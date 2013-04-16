@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="MetaModels">
+	<description>The coding standard of the MetaModels team, based on the Generic, PSR2, Squiz, TYPO3 and Zend coding standards.</description>
+
+	<!-- Exclude git -->
+	<exclude-pattern>*/.git/*</exclude-pattern>
+	<!-- Exclude third party code -->
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<!-- Exclude javascript -->
+	<exclude-pattern>*/html/*</exclude-pattern>
+	<!-- Exclude auto generated language files. -->
+	<exclude-pattern>*/languages/*/*.php</exclude-pattern>
+	<!-- Exclude auto generated autoload and config file. -->
+	<exclude-pattern>*/config/autoload.php</exclude-pattern>
+	<exclude-pattern>*/config/config.php</exclude-pattern>
+
+	<!--
+		NOTE: We assume (i.o.w. require!) to be in composer generated environment here.
+		If we are not, the require below will fail.
+	-->
+	<rule ref="../../../typo3/codesniffer/TYPO3/ruleset.xml">
+		<exclude name="TYPO3.Files.LowercasedFilename" />
+		<exclude name="TYPO3.NamingConventions.ValidVariableName" />
+		<exclude name="TYPO3.Commenting.FunctionDocComment" />
+		<exclude name="TYPO3.Commenting.ValidCommentIndent" />
+		<exclude name="TYPO3.Commenting.ValidCommentLineLength" />
+		<exclude name="TYPO3.PHP.ClosingPHPTag.NoClosingPHPTag" />
+		<exclude name="TYPO3.Files.OneClassPerFile" />
+	</rule>
+
+	<!-- Arrays -->
+	<rule ref="Squiz.Arrays.ArrayBracketSpacing" />
+<!--	<rule ref="Squiz.Arrays.ArrayDeclaration" /> -->
+
+	<!-- Classes -->
+	<rule ref="Generic.Classes.DuplicateClassName" />
+	<rule ref="PSR2.Classes.PropertyDeclaration" />
+	<rule ref="Squiz.Classes.ClassFileName" />
+	<rule ref="Squiz.Classes.LowercaseClassKeywords" />
+	<rule ref="Squiz.Classes.SelfMemberReference" />
+	<rule ref="Squiz.Classes.ValidClassName" />
+
+	<!-- CodeAnalysis -->
+	<!-- rule ref="Generic.CodeAnalysis.EmptyStatement" /   overridden by Squiz.CodeAnalysis.EmptyStatement below -->
+	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
+	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall" />
+	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
+	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement" />
+	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
+<!--	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" /> this is way too annoying as phpcs does crash when silencing this via annotation -->
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+	<rule ref="Squiz.CodeAnalysis.EmptyStatement" />
+
+	<!-- Commenting -->
+	<rule ref="Generic.Commenting.Fixme" />
+	<rule ref="Generic.Commenting.Todo" />
+	<rule ref="Squiz.Commenting.BlockComment" />
+	<rule ref="Squiz.Commenting.DocCommentAlignment" />
+	<rule ref="Squiz.Commenting.EmptyCatchComment" />
+	<rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParams">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.IncorrectParamVarName">
+		<!-- if we are ok with using integer/boolean/... instead of int/bool, enable this again. -->
+		<severity>0</severity>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
+		<!-- We definately do NOT want to enforce type hints everywhere. -->
+		<severity>0</severity>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
+	<rule ref="Squiz.Commenting.InlineComment" />
+	<rule ref="Squiz.Commenting.PostStatementComment" />
+	<rule ref="Squiz.Commenting.VariableComment" />
+	<rule ref="PEAR.Commenting.InlineComment" />
+
+	<!-- Control structures -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure" />
+	<rule ref="PSR2.ControlStructures.ControlStructureSpacing" />
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration" />
+	<rule ref="MetaModels.ControlStructures.ControlSignature" />
+
+	<!-- Files -->
+	<rule ref="Generic.Files.ByteOrderMark" />
+	<rule ref="Generic.Files.EndFileNewline" />
+	<rule ref="Generic.Files.LineEndings" />
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="120"/>
+		</properties>
+	</rule>
+	<rule ref="Generic.Files.OneClassPerFile" />
+	<rule ref="Generic.Files.OneInterfacePerFile" />
+	<!-- unsure about this one, causes problems in config.php etc. -->
+<!--	<rule ref="PSR1.Files.SideEffects" /> -->
+	<rule ref="Zend.Files.ClosingTag" />
+
+	<!-- Formatting -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
+	<rule ref="Generic.Formatting.MultipleStatementAlignment" />
+	<rule ref="Generic.Formatting.NoSpaceAfterCast" />
+	<rule ref="Squiz.Formatting.OperatorBracket" />
+
+	<!-- Functions -->
+	<rule ref="Generic.Functions.CallTimePassByReference" />
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman" />
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
+	<rule ref="Squiz.Functions.GlobalFunction" />
+	<rule ref="Squiz.Scope.MethodScope" />
+
+	<!-- Loops -->
+
+	<!-- Methods -->
+	<rule ref="PSR2.Methods.MethodDeclaration" />
+
+	<!-- Metrics -->
+	<rule ref="Generic.Metrics.CyclomaticComplexity" />
+	<rule ref="Generic.Metrics.NestingLevel" />
+
+	<!-- Namespaces -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
+	<rule ref="PSR2.Namespaces.UseDeclaration" />
+
+	<!-- NamingConventions -->
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+		<properties>
+			<property name="strict" value="false" />
+		</properties>
+	</rule>
+	<rule ref="Generic.NamingConventions.ConstructorName" />
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+	<rule ref="MetaModels.NamingConventions.ValidVariableName">
+		<properties>
+			<property name="allowedAcronyms" type="array" value="DC,DCA,DB,ID" />
+		</properties>
+	</rule>
+
+	<!-- Objects -->
+	<rule ref="Squiz.Objects.DisallowObjectStringIndex" />
+
+	<!-- Operators -->
+	<rule ref="Squiz.Operators.IncrementDecrementUsage" />
+	<rule ref="Squiz.Operators.ValidLogicalOperators" />
+
+	<!-- PHP -->
+	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag" />
+	<rule ref="Generic.PHP.DeprecatedFunctions" />
+	<rule ref="Generic.PHP.DisallowShortOpenTag" />
+	<rule ref="Generic.PHP.ForbiddenFunctions" />
+	<rule ref="Generic.PHP.LowerCaseConstant" />
+	<rule ref="Generic.PHP.LowerCaseKeyword" />
+	<rule ref="Generic.PHP.NoSilencedErrors" />
+	<rule ref="Generic.PHP.SAPIUsage" />
+	<rule ref="Squiz.PHP.CommentedOutCode" />
+	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops" />
+	<rule ref="Squiz.PHP.Eval">
+		<exclude-pattern>*/test/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.PHP.GlobalKeyword" />
+	<rule ref="Squiz.PHP.LowercasePHPFunctions" />
+	<rule ref="Squiz.PHP.NonExecutableCode" />
+
+	<!-- Scope -->
+	<rule ref="Squiz.Scope.MemberVarScope" />
+	<rule ref="Squiz.Scope.MethodScope" />
+	<rule ref="Squiz.Scope.StaticThisUsage" />
+
+	<!-- Strings -->
+	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
+	<rule ref="Squiz.Strings.DoubleQuoteUsage" />
+	<rule ref="Squiz.Strings.EchoedStrings" />
+
+	<!-- Whitespace -->
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
+	<rule ref="Squiz.WhiteSpace.CastSpacing" />
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
+	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+</ruleset>
