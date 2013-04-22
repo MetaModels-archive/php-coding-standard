@@ -21,6 +21,7 @@
 	<rule ref="../../../typo3/codesniffer/TYPO3/ruleset.xml">
 		<exclude name="TYPO3.Files.LowercasedFilename" />
 		<exclude name="TYPO3.NamingConventions.ValidVariableName" />
+		<exclude name="TYPO3.NamingConventions.ValidFunctionName" />
 		<exclude name="TYPO3.Commenting.FunctionDocComment" />
 		<exclude name="TYPO3.Commenting.ValidCommentIndent" />
 		<exclude name="TYPO3.Commenting.ValidCommentLineLength" />
@@ -137,6 +138,11 @@
 	<rule ref="MetaModels.NamingConventions.ValidVariableName">
 		<properties>
 			<property name="allowedAcronyms" type="array" value="DC,DCA,DB,ID" />
+		</properties>
+	</rule>
+	<rule ref="MetaModels.NamingConventions.ValidFunctionName">
+		<properties>
+			<property name="allowedAcronyms" type="array" value="DC,DCA,DB,ID,AUX" />
 		</properties>
 	</rule>
 
