@@ -167,12 +167,19 @@ class MetaModels_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_Cod
 			return false;
 		}
 
-		preg_match_all('/[A-Z]{2,}/', $variableName, $match);
-
 		// check if pattern is in allowed acronym list.
-		if ($match[0] == array_intersect($match[0], $this->allowedAcronyms)) {
+		preg_match_all('/([A-Z]{2,})/', $variableName, $match);
+		if ($match[1] == array_intersect($match[1], $this->allowedAcronyms)) {
 			return true;
 		}
+
+		// check again, might be an acronym followed by the first character of the next word.
+		preg_match_all('/([A-Z]{2,})[A-Z]/', $variableName, $match);
+		if ($match[1] == array_intersect($match[1], $this->allowedAcronyms)) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

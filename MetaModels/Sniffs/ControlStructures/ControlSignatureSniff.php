@@ -42,7 +42,7 @@ class MetaModels_Sniffs_ControlStructures_ControlSignatureSniff extends PHP_Code
 	{
 		return array(
 			'doEOL...{EOL...}EOL...while (...);EOL',
-			'while (...) {EOL',
+			'while (...)EOL...{EOL...}EOL',
 			'for (...)EOL...{EOL',
 			'if (...)EOL...{EOL',
 			'foreach (...)EOL...{EOL',

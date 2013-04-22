@@ -137,12 +137,12 @@
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
 	<rule ref="MetaModels.NamingConventions.ValidVariableName">
 		<properties>
-			<property name="allowedAcronyms" type="array" value="DC,DCA,DB,ID" />
+			<property name="allowedAcronyms" type="array" value="FE,BE,DC,DCA,DB,ID,SQL,PHP" />
 		</properties>
 	</rule>
 	<rule ref="MetaModels.NamingConventions.ValidFunctionName">
 		<properties>
-			<property name="allowedAcronyms" type="array" value="DC,DCA,DB,ID,AUX" />
+			<property name="allowedAcronyms" type="array" value="FE,BE,DC,DCA,DB,ID,AUX,SQL,PHP" />
 		</properties>
 	</rule>
 
