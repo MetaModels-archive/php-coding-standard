@@ -29,5 +29,8 @@
 		"wiki":"https://github.com/MetaModels/php-coding-standard/wiki",
 		"irc":"irc://irc.freenode.org/contao.mm",
 		"source":"https://github.com/MetaModels/php-coding-standard.git"
+	},
+	"autoload": {
+		"classmap": ["MetaModels"]
 	}
 }
