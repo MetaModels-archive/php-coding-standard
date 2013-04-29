@@ -21,8 +21,7 @@
 	],
 	"require": {
 		"php": ">=5.3.0",
-		"squizlabs/php_codesniffer": "dev-report-memory-improvements",
-		"typo3/codesniffer": "@dev"
+		"squizlabs/php_codesniffer": "*"
 	},
 	"support": {
 		"email":"mail@metamodel.me",

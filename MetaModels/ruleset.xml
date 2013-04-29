@@ -14,21 +14,6 @@
 	<exclude-pattern>*/config/autoload.php</exclude-pattern>
 	<exclude-pattern>*/config/config.php</exclude-pattern>
 
-	<!--
-		NOTE: We assume (i.o.w. require!) to be in composer generated environment here.
-		If we are not, the require below will fail.
-	-->
-	<rule ref="../../../typo3/codesniffer/TYPO3/ruleset.xml">
-		<exclude name="TYPO3.Files.LowercasedFilename" />
-		<exclude name="TYPO3.NamingConventions.ValidVariableName" />
-		<exclude name="TYPO3.NamingConventions.ValidFunctionName" />
-		<exclude name="TYPO3.Commenting.FunctionDocComment" />
-		<exclude name="TYPO3.Commenting.ValidCommentIndent" />
-		<exclude name="TYPO3.Commenting.ValidCommentLineLength" />
-		<exclude name="TYPO3.PHP.ClosingPHPTag.NoClosingPHPTag" />
-		<exclude name="TYPO3.Files.OneClassPerFile" />
-	</rule>
-
 	<!-- Arrays -->
 	<rule ref="Squiz.Arrays.ArrayBracketSpacing" />
 <!--	<rule ref="Squiz.Arrays.ArrayDeclaration" /> -->
@@ -40,6 +25,7 @@
 	<rule ref="Squiz.Classes.LowercaseClassKeywords" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
 	<rule ref="Squiz.Classes.ValidClassName" />
+	<rule ref="MetaModels.Classes.LowercaseClassKeywords" />
 
 	<!-- CodeAnalysis -->
 	<!-- rule ref="Generic.CodeAnalysis.EmptyStatement" /   overridden by Squiz.CodeAnalysis.EmptyStatement below -->
@@ -69,12 +55,14 @@
 		<!-- We definately do NOT want to enforce type hints everywhere. -->
 		<severity>0</severity>
 	</rule>
-
 	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
 	<rule ref="Squiz.Commenting.InlineComment" />
 	<rule ref="Squiz.Commenting.PostStatementComment" />
 	<rule ref="Squiz.Commenting.VariableComment" />
 	<rule ref="PEAR.Commenting.InlineComment" />
+	<rule ref="MetaModels.Commenting.ClassDocComment" />
+	<rule ref="MetaModels.Commenting.DoubleSlashCommentsInNewLine" />
+	<rule ref="MetaModels.Commenting.SpaceAfterDoubleSlash" />
 
 	<!-- Control structures -->
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
@@ -83,6 +71,13 @@
 	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
 	<rule ref="Squiz.ControlStructures.ForLoopDeclaration" />
 	<rule ref="MetaModels.ControlStructures.ControlSignature" />
+	<rule ref="MetaModels.ControlStructures.AlignedBreakStatement" />
+	<rule ref="MetaModels.ControlStructures.DisallowElseIfConstruct" />
+	<rule ref="MetaModels.ControlStructures.ValidBreakStatementsInSwitches" />
+	<rule ref="MetaModels.ControlStructures.ValidDefaultStatementsInSwitches" />
+
+	<!-- Debug -->
+	<rule ref="MetaModels.Debug.DebugCode" />
 
 	<!-- Files -->
 	<rule ref="Generic.Files.ByteOrderMark" />
@@ -99,6 +94,8 @@
 	<!-- unsure about this one, causes problems in config.php etc. -->
 <!--	<rule ref="PSR1.Files.SideEffects" /> -->
 	<rule ref="Zend.Files.ClosingTag" />
+	<rule ref="MetaModels.Files.EncodingUtf8" />
+	<rule ref="MetaModels.Files.IncludingFile" />
 
 	<!-- Formatting -->
 	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
@@ -170,16 +167,21 @@
 	<rule ref="Squiz.PHP.GlobalKeyword" />
 	<rule ref="Squiz.PHP.LowercasePHPFunctions" />
 	<rule ref="Squiz.PHP.NonExecutableCode" />
+	<rule ref="MetaModels.PHP.CharacterAfterPHPClosingTag" />
+	<rule ref="MetaModels.PHP.CharacterBeforePHPOpeningTag" />
+	<rule ref="MetaModels.PHP.DisallowMultiplePHPTags" />
 
 	<!-- Scope -->
 	<rule ref="Squiz.Scope.MemberVarScope" />
 	<rule ref="Squiz.Scope.MethodScope" />
 	<rule ref="Squiz.Scope.StaticThisUsage" />
+	<rule ref="MetaModels.Scope.AlwaysReturn" />
 
 	<!-- Strings -->
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
 	<rule ref="Squiz.Strings.DoubleQuoteUsage" />
 	<rule ref="Squiz.Strings.EchoedStrings" />
+	<rule ref="MetaModels.Strings.UnnecessaryStringConcat" />
 
 	<!-- Whitespace -->
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
@@ -187,4 +189,8 @@
 	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+	<rule ref="MetaModels.WhiteSpace.AssignmentArithmeticAndComparisonSpace" />
+	<rule ref="MetaModels.WhiteSpace.AsteriksWhitespaces" />
+	<rule ref="MetaModels.WhiteSpace.DisallowSpaceIndent" />
+	<rule ref="MetaModels.WhiteSpace.WhitespaceAfterCommentSigns" />
 </ruleset>
