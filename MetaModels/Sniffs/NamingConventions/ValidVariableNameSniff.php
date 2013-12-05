@@ -139,9 +139,10 @@ class MetaModels_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_Cod
 
 		}
 		else if ($isLowerCamelCase === false) {
-			$pattern                     = '/([A-Z]{1,}(?=[A-Z]?|[0-9]))/e';
-			$replace                     = "ucfirst(strtolower('\\1'))";
-			$variableNameLowerCamelCased = preg_replace($pattern, $replace, $variableName);
+			$pattern                     = '/([A-Z]{1,}(?=[A-Z]?|[0-9]))/';
+			$variableNameLowerCamelCased = preg_replace_callback($pattern, function($matches){
+				return ucfirst(strtolower($matches[1]));
+			}, $variableName);
 
 			if ($this->checkAllowedAcronyms($variableName)) {
 				return;
