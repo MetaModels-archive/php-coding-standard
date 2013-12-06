@@ -125,7 +125,6 @@ class MetaModels_Sniffs_Commenting_InlineCommentSniff implements PHP_CodeSniffer
                 if (substr($tokens[$stackPtr]['content'], 0, 8) === '/** @var') {
                     return;
                 }
-	            var_dump(substr($tokens[$stackPtr]['content'], 0, 8), '/** @var');
 
                 // Only error once per comment.
                 if (substr($tokens[$stackPtr]['content'], 0, 3) === '/**') {
