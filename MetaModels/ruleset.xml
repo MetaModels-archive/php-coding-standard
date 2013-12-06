@@ -41,7 +41,7 @@
 	<!-- Commenting -->
 	<rule ref="Generic.Commenting.Fixme" />
 	<rule ref="Generic.Commenting.Todo" />
-	<rule ref="Squiz.Commenting.BlockComment" />
+	<rule ref="MetaModels.Commenting.BlockComment" />
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Commenting.EmptyCatchComment" />
 	<rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParams">
@@ -56,7 +56,7 @@
 		<severity>0</severity>
 	</rule>
 	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
-	<rule ref="Squiz.Commenting.InlineComment" />
+	<rule ref="MetaModels.Commenting.InlineComment" />
 	<rule ref="Squiz.Commenting.PostStatementComment" />
 	<rule ref="Squiz.Commenting.VariableComment" />
 	<rule ref="PEAR.Commenting.InlineComment" />
