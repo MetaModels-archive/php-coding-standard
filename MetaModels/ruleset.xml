@@ -159,7 +159,7 @@
 	<rule ref="Generic.PHP.LowerCaseKeyword" />
 	<rule ref="Generic.PHP.NoSilencedErrors" />
 	<rule ref="Generic.PHP.SAPIUsage" />
-	<rule ref="Squiz.PHP.CommentedOutCode" />
+	<rule ref="MetaModels.PHP.CommentedOutCode" />
 	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops" />
 	<rule ref="Squiz.PHP.Eval">
 		<exclude-pattern>*/test/*</exclude-pattern>
