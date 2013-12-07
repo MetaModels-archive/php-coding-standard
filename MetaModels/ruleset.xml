@@ -44,14 +44,14 @@
 	<rule ref="MetaModels.Commenting.BlockComment" />
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Commenting.EmptyCatchComment" />
-	<rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParams">
+	<rule ref="MetaModels.Commenting.FunctionComment.SpacingAfterParams">
 		<severity>0</severity>
 	</rule>
-	<rule ref="Squiz.Commenting.FunctionComment.IncorrectParamVarName">
+	<rule ref="MetaModels.Commenting.FunctionComment.IncorrectParamVarName">
 		<!-- if we are ok with using integer/boolean/... instead of int/bool, enable this again. -->
 		<severity>0</severity>
 	</rule>
-	<rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
+	<rule ref="MetaModels.Commenting.FunctionComment.TypeHintMissing">
 		<!-- We definately do NOT want to enforce type hints everywhere. -->
 		<severity>0</severity>
 	</rule>

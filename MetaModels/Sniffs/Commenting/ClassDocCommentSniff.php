@@ -144,6 +144,11 @@ class MetaModels_Sniffs_Commenting_ClassDocCommentSniff implements PHP_CodeSniff
             $phpcsFile->addError($error, $commentStart, 'Empty', $errorData);
             return;
         }
+
+        if (strpos(strtolower($comment->getShortComment()), '{@inheritdoc}') !== false) {
+            return;
+        }
+
         // No extra newline before short description.
         $short = $comment->getShortComment();
         $newlineCount = 0;

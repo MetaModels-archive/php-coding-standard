@@ -98,6 +98,10 @@ class MetaModels_Sniffs_PHP_CommentedOutCodeSniff implements PHP_CodeSniffer_Sni
                 return;
             }
 
+            if (strpos(strtolower($tokens[$i]['content']), '{@inheritdoc}') !== false) {
+                return;
+            }
+
             /*
                 Trim as much off the comment as possible so we don't
                 have additional whitespace tokens or comment tokens
