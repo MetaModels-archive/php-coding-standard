@@ -58,7 +58,7 @@
 	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
 	<rule ref="MetaModels.Commenting.InlineComment" />
 	<rule ref="Squiz.Commenting.PostStatementComment" />
-	<rule ref="Squiz.Commenting.VariableComment" />
+	<rule ref="MetaModels.Commenting.VariableComment" />
 	<rule ref="PEAR.Commenting.InlineComment" />
 	<rule ref="MetaModels.Commenting.ClassDocComment" />
 	<rule ref="MetaModels.Commenting.DoubleSlashCommentsInNewLine" />
