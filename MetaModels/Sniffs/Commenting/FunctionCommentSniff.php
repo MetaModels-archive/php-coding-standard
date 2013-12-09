@@ -407,11 +407,17 @@ class MetaModels_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniff
                     foreach ($typeNames as $i => $typeName) {
                         $suggestedName = PHP_CodeSniffer::suggestType($typeName);
                         if (in_array($suggestedName, $suggestedNames) === false) {
-                            // hotfix - somehow they do not like "int".
-                            if ($suggestedName === 'integer') {
-                                $suggestedName = 'int';
+                            // hotfix - somehow they do not like "int" and "bool".
+                            switch ($typeName) {
+                                case 'int':
+                                    $suggestedNames[] = 'int';
+                                    break;
+                                case 'bool':
+                                    $suggestedNames[] = 'bool';
+                                    break;
+                                default:
+                                    $suggestedNames[] = $suggestedName;
                             }
-                            $suggestedNames[] = $suggestedName;
                         }
                     }
 
