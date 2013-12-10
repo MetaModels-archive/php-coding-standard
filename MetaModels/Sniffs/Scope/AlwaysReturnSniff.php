@@ -185,7 +185,6 @@ class MetaModels_Sniffs_Scope_AlwaysReturnSniff implements PHP_CodeSniffer_Sniff
 	 */
 	protected function throwsException($tokens, $methodToken, $tokenStart, $tokenEnd)
 	{
-		var_dump($this->currentFile->getDeclarationName($this->classToken) . '::' . $this->methodName);
 		$level = ($methodToken['level'] + 1);
 
 		$result = $this->currentFile->findNext(array(T_THROW), $tokenStart, $tokenEnd);
