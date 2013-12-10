@@ -135,10 +135,16 @@ class MetaModels_Sniffs_Scope_AlwaysReturnSniff implements PHP_CodeSniffer_Sniff
 			if (strtolower($returnContent) === 'void') {
 				return;
 			}
+
+			// If neither phpDoc is present nor a return value can be found, we accept this to be void.
+			if (!$this->getValueOfReturnTag() && ($this->checkAvailableReturnStatement($tokens, $start, $end) === false))
+			{
+				return;
+			}
 		}
 
-		// If neither phpDoc is present nor a return value can be found, we accept this to be void.
-		if (($docComment && !$this->getValueOfReturnTag()) && $this->checkAvailableReturnStatement($tokens, $start, $end, false) === false)
+		// Special case, the method has a "throw" at top level within the method.
+		if ($this->throwsException($tokens, $tokens[$stackPtr], $start, $end))
 		{
 			return;
 		}
@@ -155,10 +161,46 @@ class MetaModels_Sniffs_Scope_AlwaysReturnSniff implements PHP_CodeSniffer_Sniff
 		} while ($next !== false);
 
 		if ($result === false) {
-			$error = 'This function must always have a return value.';
+			$error = 'The function ' . $methodName . '() must always have a return value.';
 			$phpcsFile->addError($error, $stackPtr, 'AlwaysReturnStatement');
 		}
 
+	}
+
+	/**
+	 * Check if the method has a "throw" statement at the top level.
+	 *
+	 * Whenever a method throws an Exception instead of an return statement, at the top level, we accept this as return
+	 * replacement.
+	 *
+	 * @param array   $tokens      Token array of file.
+	 *
+	 * @param array   $methodToken The token of the method.
+	 *
+	 * @param integer $tokenStart  Integer, token number where the checks will begin.
+	 *
+	 * @param integer $tokenEnd    Integer, token number where the checks will end.
+	 *
+	 * @return bool
+	 */
+	protected function throwsException($tokens, $methodToken, $tokenStart, $tokenEnd)
+	{
+		var_dump($this->currentFile->getDeclarationName($this->classToken) . '::' . $this->methodName);
+		$level = ($methodToken['level'] + 1);
+
+		$result = $this->currentFile->findNext(array(T_THROW), $tokenStart, $tokenEnd);
+
+		while ($result !== false)
+		{
+			if ($tokens[$result]['level'] === $level)
+			{
+				return true;
+			}
+
+			$result = $this->currentFile->findNext(array(T_THROW), ($result + 1), $tokenEnd);
+		}
+
+		return false;
 	}
 
 	/**
