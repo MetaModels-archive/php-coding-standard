@@ -34,6 +34,7 @@ class MetaModels_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_Cod
 		'_REQUEST',
 		'_COOKIE',
 		'_FILES',
+		'_'
 	);
 
 	/**
