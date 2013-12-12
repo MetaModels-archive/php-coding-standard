@@ -105,15 +105,21 @@ class MetaModels_Sniffs_Scope_AlwaysReturnSniff implements PHP_CodeSniffer_Sniff
 			$className = strtolower(ltrim($className, '_'));
 		}
 
-		$start = $tokens[$stackPtr]['scope_opener'];
-		$end   = $tokens[$stackPtr]['scope_closer'];
-
 		// Skip constructor and destructor.
 		$methodName      = strtolower(ltrim($this->methodName, '_'));
 		$isSpecialMethod = ($this->methodName === '__construct' || $this->methodName === '__destruct');
 		if ($isSpecialMethod === true || ($className !== '' && $methodName === $className)) {
 			return;
 		}
+
+		// Ignore abstract functions.
+		if (!(isset($tokens[$stackPtr]['scope_opener']) && isset($tokens[$stackPtr]['scope_closer'])))
+		{
+			return;
+		}
+
+		$start = $tokens[$stackPtr]['scope_opener'];
+		$end   = $tokens[$stackPtr]['scope_closer'];
 
 		if ($docComment !== null) {
 			$returnContent = $this->getValueOfReturnTag();
