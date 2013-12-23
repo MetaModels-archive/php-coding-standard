@@ -714,9 +714,11 @@ class MetaModels_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniff
                     $foundParams[] = $realName;
 
                     // Append ampersand to name if passing by reference.
+	                /* DO NOT do this, this breaks phpDocumentor.
                     if ($realParams[($pos - 1)]['pass_by_reference'] === true) {
                         $realName = '&'.$realName;
                     }
+	                */
 
                     if ($realName !== $paramName) {
                         $code = 'ParamNameNoMatch';
