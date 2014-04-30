@@ -178,7 +178,6 @@
 	<rule ref="MetaModels.Scope.AlwaysReturn" />
 
 	<!-- Strings -->
-	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
 	<rule ref="Squiz.Strings.DoubleQuoteUsage" />
 	<rule ref="Squiz.Strings.EchoedStrings" />
 	<rule ref="MetaModels.Strings.UnnecessaryStringConcat" />
