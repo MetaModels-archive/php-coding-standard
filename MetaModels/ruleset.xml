@@ -183,13 +183,11 @@
   <rule ref="MetaModels.Strings.UnnecessaryStringConcat" />
 
   <!-- Whitespace -->
-  <rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
   <rule ref="Squiz.WhiteSpace.CastSpacing" />
   <rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
   <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
   <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
   <rule ref="MetaModels.WhiteSpace.AssignmentArithmeticAndComparisonSpace" />
   <rule ref="MetaModels.WhiteSpace.AsteriksWhitespaces" />
-  <rule ref="MetaModels.WhiteSpace.DisallowSpaceIndent" />
   <rule ref="MetaModels.WhiteSpace.WhitespaceAfterCommentSigns" />
 </ruleset>
