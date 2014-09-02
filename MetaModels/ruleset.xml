@@ -64,9 +64,7 @@
   <rule ref="MetaModels.Commenting.SpaceAfterDoubleSlash" />
 
   <!-- Control structures -->
-  <rule ref="MetaModels.ControlStructures.ControlSignature" />
   <rule ref="MetaModels.ControlStructures.AlignedBreakStatement" />
-  <rule ref="MetaModels.ControlStructures.DisallowElseIfConstruct" />
   <rule ref="MetaModels.ControlStructures.ValidBreakStatementsInSwitches" />
   <rule ref="MetaModels.ControlStructures.ValidDefaultStatementsInSwitches" />
 
