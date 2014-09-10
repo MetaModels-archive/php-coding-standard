@@ -78,7 +78,7 @@ class MetaModels_Sniffs_ControlStructures_AlignedBreakStatementSniff implements 
             $scopeToken = array_keys($tokens[$stackPtr]['conditions']);
             $checkTokenIndex = $scopeToken[count($scopeToken) - 1];
         }
-        if ($tokens[$stackPtr]['column'] != ($tokens[$checkTokenIndex]['column'] + 1)) {
+        if ($tokens[$stackPtr]['column'] != ($tokens[$checkTokenIndex]['column'] + 4)) {
             $phpcsFile->addError('Break Statement must have the same indent than the scope.', $stackPtr);
         }
     }
