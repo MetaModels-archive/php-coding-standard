@@ -85,7 +85,6 @@
 
   <!-- Functions -->
   <rule ref="Generic.Functions.CallTimePassByReference" />
-  <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman" />
   <rule ref="Squiz.Functions.FunctionDuplicateArgument" />
   <rule ref="Squiz.Functions.GlobalFunction" />
   <rule ref="Squiz.Scope.MethodScope" />
